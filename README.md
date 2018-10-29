@@ -22,3 +22,17 @@ ref: [Angular RouterLink](https://angular.io/api/router/RouterLink)
         </a>
     </div>
 ```
+
+## DatePipe
+
+ref: [Angular DatePipe](https://angular.io/api/common/DatePipe)
+
+'''html
+ <div>
+   <p>Today is {{today | date}}</p>
+   <p>Or if you prefer, {{today | date:'fullDate'}}</p>
+   <p>The time is {{today | date:'h:mm a z'}}</p>
+   <p>Common used date is {{ todat | date:'dd/MM/yyyy' }}</p>
+ </div>
+```
+
