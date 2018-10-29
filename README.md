@@ -27,7 +27,7 @@ ref: [Angular RouterLink](https://angular.io/api/router/RouterLink)
 
 ref: [Angular DatePipe](https://angular.io/api/common/DatePipe)
 
-'''html
+```html
  <div>
    <p>Today is {{today | date}}</p>
    <p>Or if you prefer, {{today | date:'fullDate'}}</p>
