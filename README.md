@@ -14,9 +14,11 @@ ref: [Angular RouterLink](https://angular.io/api/router/RouterLink)
             <span *ngSwitchCase="INS_STATUS.CREATED" class="badge badge-pill badge-warning float-right">Nueva</span>
             <span *ngSwitchCase="INS_STATUS.BILLED" class="badge badge-pill badge-success float-right">Nueva</span>
         </div>
-        \{\{ inspection.client?.name \}\}
+    {% raw %}
+        {{ inspection.client?.name }}
         {{ inspection.insured_name.substring(0,8) }}
         {{ inspection.address?.state }}
+    {% endraw %}
         </a>
     </div>
 ```
