@@ -4,7 +4,7 @@
 
 ref: [Angular RouterLink](https://angular.io/api/router/RouterLink)
 
-```html
+```angular
     <div class="list-group fs-mini">
         <a *ngFor="let inspection of inspections" [routerLink]="['/app/inspection/summary/', inspection.uid]" class="list-group-item text-ellipsis">
         <div [ngSwitch]="inspection.status()">
