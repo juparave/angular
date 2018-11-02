@@ -33,8 +33,21 @@ ref: [Angular DatePipe](https://angular.io/api/common/DatePipe)
    <p>Today is {{today | date}}</p>
    <p>Or if you prefer, {{today | date:'fullDate'}}</p>
    <p>The time is {{today | date:'h:mm a z'}}</p>
-   <p>Common used date is {{ todat | date:'dd/MM/yyyy' }}</p>
+   <p>Common used date is {{ today | date:'dd/MM/yyyy' }}</p>
  </div>
 {% endraw %}
+```
+
+
+## ngFor with ng-template
+
+ref: [Angular ngFor, <ng-tempalte> and the compiler](https://toddmotto.com/angular-ngfor-template-element)
+
+```html
+<ng-template [ngIf]="inspection.status() == INS_STATUS.SCHEDULED">
+    <ng-template ngFor let-appointment [ngForOf]="inspection.appointments">
+    <span class="badge badge-warning">{{ appointment.start | date:'dd/MM/yyyy' }}</span>&nbsp;
+    </ng-template>
+</ng-template>
 ```
 
