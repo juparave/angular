@@ -44,10 +44,12 @@ ref: [Angular DatePipe](https://angular.io/api/common/DatePipe)
 ref: [Angular ngFor, <ng-tempalte> and the compiler](https://toddmotto.com/angular-ngfor-template-element)
 
 ```html
+{% raw %}
 <ng-template [ngIf]="inspection.status() == INS_STATUS.SCHEDULED">
     <ng-template ngFor let-appointment [ngForOf]="inspection.appointments">
     <span class="badge badge-warning">{{ appointment.start | date:'dd/MM/yyyy' }}</span>&nbsp;
     </ng-template>
 </ng-template>
+{% endraw %}
 ```
 
