@@ -1,4 +1,4 @@
-# Anglua CLI
+# Angular CLI
 
 ref: [angular-cli wiki](https://github.com/angular/angular-cli/wiki)
 
