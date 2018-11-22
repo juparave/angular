@@ -2,6 +2,12 @@
 
 ref: [angular-cli wiki](https://github.com/angular/angular-cli/wiki)
 
+## Generating new module
+
+    $ ng generate module pos
+    CREATE src/app/pos/pos.module.spec.ts (251 bytes)
+    CREATE src/app/pos/pos.module.ts (187 bytes)
+
 ## Generating new component
 
     $ ng generate component app/driver/list/DriverList --module app/driver
