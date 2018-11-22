@@ -4,9 +4,9 @@ ref: [angular-cli wiki](https://github.com/angular/angular-cli/wiki)
 
 ## Generating new module
 
-    $ ng generate module pos
-    CREATE src/app/pos/pos.module.spec.ts (251 bytes)
-    CREATE src/app/pos/pos.module.ts (187 bytes)
+    $ ng generate module sales
+    CREATE src/app/sales/sales.module.spec.ts (251 bytes)
+    CREATE src/app/sales/sales.module.ts (187 bytes)
 
 ## Generating new component
 
@@ -16,3 +16,10 @@ ref: [angular-cli wiki](https://github.com/angular/angular-cli/wiki)
     CREATE src/app/driver/list/driver-list/driver-list.component.spec.ts (657 bytes)
     CREATE src/app/driver/list/driver-list/driver-list.component.ts (289 bytes)
     UPDATE src/app/driver/driver.module.ts (1571 bytes)
+
+## Example
+
+    # creating sales module
+    $ ng generate module sales
+    # adding pos component to sales module
+    $ ng generate component sales/pos --module sales
