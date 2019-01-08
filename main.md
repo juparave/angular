@@ -25,6 +25,12 @@ ref: [Angular RouterLink](https://angular.io/api/router/RouterLink)
     </div>
 ```
 
+```html
+    <a [routerLink]="['/user/bob']" [queryParams]="{debug: true}" queryParamsHandling="merge">
+    link to user component
+    </a>
+```
+
 ## DatePipe
 
 ref: [Angular DatePipe](https://angular.io/api/common/DatePipe)
