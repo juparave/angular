@@ -31,6 +31,17 @@ ref: [Angular RouterLink](https://angular.io/api/router/RouterLink)
     </a>
 ```
 
+```javascript
+    ngOnInit() {
+        // snapshot
+        this.debug = this.route.snapshot.queryParamMap.get("debug");
+        // subscribe
+        this.route.queryParamMap.subscribe(queryParams => {
+            this.debug = queryParams.get("debug")
+        })
+    }
+```
+
 ## Navigate from controller
 
 ```javascript
