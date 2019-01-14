@@ -31,6 +31,32 @@ ref: [Angular RouterLink](https://angular.io/api/router/RouterLink)
     </a>
 ```
 
+## Navigate from controller
+
+```javascript
+    gotoHeroes(hero: Hero) {
+        let heroId = hero ? hero.id : null;
+        // Pass along the hero id if available
+        // so that the HeroList component can select that hero.
+        // Include a junk 'foo' property for fun.
+        this.router.navigate(['/heroes', { id: heroId, foo: 'foo' }]);
+    }
+```
+
+## Obtaining route parameter
+
+When you know for certain that a HeroDetailComponent instance will never, never, ever be re-used, you can simplify the code with the snapshot.
+
+The route.snapshot provides the initial value of the route parameter map. You can access the parameters directly without subscribing or adding observable operators. It's much simpler to write and read:
+
+```javascript
+    ngOnInit() {
+        let id = this.route.snapshot.paramMap.get('id');
+
+        this.hero$ = this.service.getHero(id);
+    }
+```
+
 ## DatePipe
 
 ref: [Angular DatePipe](https://angular.io/api/common/DatePipe)
