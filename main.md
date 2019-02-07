@@ -98,3 +98,25 @@ ref: [Angular ngFor, <ng-tempalte> and the compiler](https://toddmotto.com/angul
 {% endraw %}
 ```
 
+## Enumeration
+
+```javascript
+    export enum INSPECION_STATUS {
+        CREATED = 1,
+        ASSIGNED,
+        SCHEDULED,
+        REPORTED,
+        COMPLETED,
+        DELIVERED,
+        BILLED
+    }
+
+    export enum STOWAGE_STATUS {
+        NORMAL = 1,
+        CONSUMED,
+        IN_TRANSFER,
+        OUT,
+        LOST,
+        RESERVED
+    }
+```
