@@ -5,6 +5,7 @@
 ## Hiper links on HTML
 
 ref: [Angular RouterLink](https://angular.io/api/router/RouterLink)
+ref: [Routing & Navigation](https://angular.io/guide/router)
 
 ```html
     <div class="list-group fs-mini">
@@ -29,16 +30,41 @@ ref: [Angular RouterLink](https://angular.io/api/router/RouterLink)
     <a [routerLink]="['/user/bob']" [queryParams]="{debug: true}" queryParamsHandling="merge">
     link to user component
     </a>
+
+    <h2>HEROES</h2>
+    <ul class="heroes">
+        <li *ngFor="let hero of heroes$ | async"
+            [class.selected]="hero.id === selectedId">
+            <a [routerLink]="['/hero', hero.id]">
+            <span class="badge">{{ hero.id }}</span>{{ hero.name }}
+            </a>
+        </li>
+    </ul>
+```
+
+```javascript
+    // on routing module
+    const heroesRoutes: Routes = [
+        { path: 'heroes',  component: HeroListComponent, data: { animation: 'heroes' } },
+        { path: 'hero/:id', component: HeroDetailComponent, data: { animation: 'hero' } }
+    ];
+
 ```
 
 ```javascript
     ngOnInit() {
-        // snapshot
+        // query snapshot
         this.debug = this.route.snapshot.queryParamMap.get("debug");
-        // subscribe
+        // query subscribe
         this.route.queryParamMap.subscribe(queryParams => {
             this.debug = queryParams.get("debug")
-        })
+        });
+        // param snapshop
+        this.hero_id = this.route.snapshot.paramMap.get("id");
+        // query subscribe
+        this.route.paramMap.subscribe(params => {
+            this.hero_id = params.get("id")
+        });
     }
 ```
 
