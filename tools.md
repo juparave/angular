@@ -30,3 +30,27 @@ Using NgbModule you need to convert initial value
     return value;
     }
 ```
+
+## UpperCase Directive
+
+```javascript
+    import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
+
+    /** usage:
+        <input type="text" class="form-control" placeholder="ID"
+                formControlName="id" [(ngModel)]="form.value.id" uppercase/>
+    */
+
+    @Directive({
+        selector: '[ngModel][uppercase]'
+    })
+    export class UppercaseDirective {
+        @Output() ngModelChange: EventEmitter<any> = new EventEmitter();
+        value: any;
+
+        @HostListener('input', ['$event']) onInputChange($event) {
+            this.value = $event.target.value.toUpperCase();
+            this.ngModelChange.emit(this.value);
+        }
+    }
+```
