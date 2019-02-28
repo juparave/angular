@@ -8,11 +8,11 @@
 ## To import on components
 
 ```javascript
-    import {} from "googlemaps";
+import {} from "googlemaps";
 ```
 
 Add a file at your projects root directory called index.d.ts and insert the following:
 
 ```javascript
-    declare module 'googlemaps';
+declare module 'googlemaps';
 ```
