@@ -88,9 +88,17 @@ The route.snapshot provides the initial value of the route parameter map. You ca
 
 ```javascript
     ngOnInit() {
+        // route parameter
         let id = this.route.snapshot.paramMap.get('id');
-
         this.hero$ = this.service.getHero(id);
+
+        // query parameter
+        let aid = this.route.snapshot.queryParamMap.get('aid');
+        // aid != null && aid != ""
+        if (aid) {
+            this.loadAppointment(aid);
+        }
+
     }
 ```
 
