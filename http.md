@@ -1,5 +1,7 @@
 # http
 
+ref: [Learn rxjs](https://www.learnrxjs.io/learn-rxjs/operators/error_handling/retrywhen)
+
 ### retryWhen operator
 
 ```typescript
