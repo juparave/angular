@@ -1,6 +1,6 @@
 # http
 
-### Retry operator
+### retryWhen operator
 
 ```typescript
 // ref: https://blog.angularindepth.com/retry-failed-http-requests-in-angular-f5959d486294
@@ -31,7 +31,7 @@ export function retryWithBackoff(delayMs: number, maxRetry = DEFAULT_MAX_RETRIES
 }
 ```
 
-### using retry operator
+### using retry operator with custom strategy
 
 ```typescript
   register(user: User) {
@@ -59,5 +59,36 @@ export function retryWithBackoff(delayMs: number, maxRetry = DEFAULT_MAX_RETRIES
         catchError(this.handleErrors),
         shareReplay()
       );
+  }
+```
+
+### using retry operator with generic strategy
+
+```typescript
+  register(user: User) {
+      let headers = new HttpHeaders();
+      headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+      console.log(this.serviceUrl + "register",
+        JSON.stringify({
+          username: user.email_address,
+          name: user.display_name,
+          email: user.email_address,
+          password: user.password
+        }));
+
+      return this._http.post<any>(
+          this.serviceUrl + "register",
+          JSON.stringify({
+            username: user.email_address,
+            name: user.display_name,
+            email: user.email_address,
+            password: user.password
+          }),
+          { headers: headers }).pipe(
+              retryWhen((genericRetryStrategy({
+                  scalingDuration: 2000,
+                  excludedStatusCodes: [500]
+              }))),
+              catchError(this.handleErrors));
   }
 ```
