@@ -1,6 +1,6 @@
-# Angular Authentication
+# Angular Authentication with JWT
 
-## Setup
+## Setup client-side
 
 Install angular jwt dependency
 
@@ -262,5 +262,54 @@ import { AuthService } from './services/auth/auth.service';
 })
 
 export class AppModule { }
+
+```
+
+## Setup server-side
+
+Using Turbogears
+
+Install JWT library dependency
+
+    $ pip install PyJWT
+    
+On auth controller
+
+```python
+@expose('json')
+@with_json_params
+def oauth(self, *args, **kw):
+    headers = request.headers
+    for key in headers.keys():
+        log.debug("m request headers['%s']: %s", key, headers.get(key))
+    log.debug("m oauth args: %s", args)
+    log.debug("m oauth kw: %s", kw)
+    log.debug("m oauth body: %s", request.body)
+
+    username = kw.get('username')
+    password = kw.get('password')
+    resp = dict(
+        id_token=None,
+        success=False)
+
+    user = model.User.by_user_name(username)
+
+    if user:
+        if user.validate_password(password):
+            # success
+            log.debug("login success")
+            user.last_login_date = dt.datetime.now()
+            resp['id_token'] = self.jwt.createToken(user).decode('utf-8')
+            resp['success'] = True
+            resp['user'] = user.to_json
+            # login on turbogears
+            force_user(username)
+        else:
+            log.debug("login error")
+            # fail, wrong password
+            resp['success'] = False
+
+    # log.debug("oauth resp: %s", resp)
+    return resp
 
 ```
