@@ -223,7 +223,38 @@ export class TokenInterceptor implements HttpInterceptor {
 
 ```
 
-Add `AuthService` and `TokenInterceptor` to app.modules.ts
+Create autn guard
+
+    $ ng generate guard services/auth/auth
+    
+```typescript
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { AuthService } from './auth.service';
+
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+/** Authentication Guard, only authenticated users with JWT Token on localstorage */
+@Injectable()
+export class AuthGuard implements CanActivate {
+
+  constructor(private authService: AuthService, public router: Router) {
+  }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (!this.authService.authenticated()) {
+      this.router.navigate(['login']);
+      return false;
+    }
+    return true;
+  }
+}
+```
+
+Add `AuthService`, `AuthGuard` and `TokenInterceptor` to app.modules.ts
 
 ```typescript
 ...
@@ -231,6 +262,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 ...
 import { TokenInterceptor } from './services/auth/token.interceptor';
 import { AuthService } from './services/auth/auth.service';
+import { AuthGuard } from './services/auth/auth.guard';
 ...
 
 @NgModule({
@@ -251,6 +283,7 @@ import { AuthService } from './services/auth/auth.service';
   ],
   providers: [
     AuthService,
+    AuthGuard,
     AppConfig,
     {
       provide: HTTP_INTERCEPTORS,
