@@ -14,3 +14,12 @@ Create new Project
     ? Would you like to add Angular routing? Yes
     ? Which stylesheet format would you like to use? SCSS
 
+Run it
+
+    $ cd ChoferoBilling
+    $ ng serve --open
+
+Add Angular Material Framework and PWA support
+
+    $ ng add @angulat/material
+    $ ng add @angular/pwa
