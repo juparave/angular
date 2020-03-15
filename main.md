@@ -87,6 +87,13 @@ When you know for certain that a HeroDetailComponent instance will never, never,
 The route.snapshot provides the initial value of the route parameter map. You can access the parameters directly without subscribing or adding observable operators. It's much simpler to write and read:
 
 ```javascript
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+        private service: HeroService
+    ) {}
+
+
     ngOnInit() {
         // route parameter
         let id = this.route.snapshot.paramMap.get('id');
