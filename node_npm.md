@@ -18,5 +18,5 @@ Use [brew](brew.sh)
 
 Find desire package version in the search result list
 
-    $ brew install node@8
-    $ brew link node@8
+    $ brew install node@12
+    $ brew link node@12
