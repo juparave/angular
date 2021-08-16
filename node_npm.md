@@ -21,6 +21,11 @@ Find desire package version in the search result list
     $ brew install node@12
     $ brew link node@12
 
+For angular 12 you will need node 14
+
+    $ brew install node@14
+    $ brew link node@14
+
 ## Using npm update and npm outdated to update dependencies
 
 **npm outdate** to ask npm to list which packages have newer versions available.
