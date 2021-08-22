@@ -2,6 +2,7 @@
 
 ref: https://dev.to/nightwolfdev/dynamically-set-page-title-in-angular-app-35ca
 
+`admin-layout.routing.ts`
 ```typescript
 import { Routes } from '@angular/router';
 
@@ -17,7 +18,7 @@ export const AdminLayoutRoutes: Routes = [
 ];
 ```
 
-
+`navbar.component.ts`
 ```typescript
 import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { ROUTES } from '../../sidebar/sidebar.component';
