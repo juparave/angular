@@ -109,6 +109,23 @@ The route.snapshot provides the initial value of the route parameter map. You ca
     }
 ```
 
+## Get host name and app name from URL
+
+If you want to get the domain name and application name only, rely on the router location and on the window location.
+
+```typescript
+import { Location } from '@angular/common';
+
+constructor(private loc: Location) {}
+
+ngOnInit() {
+  const angularRoute = this.loc.path();
+  const url = window.location.href;
+
+  const domainAndApp = url.replace(angularRoute, '');
+}
+```
+
 ## DatePipe
 
 ref: [Angular DatePipe](https://angular.io/api/common/DatePipe)
