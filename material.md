@@ -35,3 +35,9 @@ ref: https://stackblitz.com/edit/angular-yb37gh-pp27qh?file=app%2Ftree-checklist
 ## Using dialogs
 
 ref: https://www.freakyjolly.com/angular-material-table-operations-using-dialog/
+
+## Forms
+
+[Angular 12 Reactive Forms Validation with Angular Material](https://www.positronx.io/angular-8-reactive-forms-validation-with-angular-material-8/)
+
+[Angular 11 Autocomplete Tutorial with Angular Material](https://www.positronx.io/angular-8-autocomplete-tutorial-with-angular-material/)
