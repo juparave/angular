@@ -21,7 +21,7 @@ That creates a base Tailwind CSS file: `tailwind.config.ts`
 
 ref: https://github.com/tailwindlabs/tailwindcss-forms
 
-    $ npm install @tailwindcss/forms
+    $ npm install -D @tailwindcss/forms
 
 Then add the plugin to your `tailwind.config.js` file:
 
@@ -42,7 +42,7 @@ module.exports = {
 
 ref: https://tailwind-elements.com/
 
-    $ npm install tw-elements
+    $ npm install -D tw-elements
 
 Tailwind Elements is a plugin and should be included inside the `tailwind.config.js` file. It is also recommended to extend the content array with a js file that loads dynamic component classes:
 
@@ -80,4 +80,14 @@ Add to `angular.json` Tailwind-elements js dependency
         }
     }
 }
+```
+
+## Add the Tailwind directives to your CSS
+
+Add the @tailwind directives for each of Tailwind’s layers to your `./src/styles.css` file.
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
