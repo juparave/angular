@@ -5,7 +5,7 @@
 Install angular jwt dependency
 
     $ npm install @auth0/angular-jwt --save
-  
+
 Create auth.service.ts
 
     $ ng generate service services/auth/auth
@@ -14,30 +14,30 @@ This will create `services/auth/auth.service.ts` file
 
 ```typescript
 // services/auth/auth.service.ts
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
+import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
+import { JwtHelperService } from "@auth0/angular-jwt";
 
-import { Observable } from 'rxjs';
-import { catchError, shareReplay, tap } from 'rxjs/operators';
+import { Observable } from "rxjs";
+import { catchError, shareReplay, tap } from "rxjs/operators";
 
-import { retryWithBackoff } from '../http/retryWithBackoff';
-import { AppConfig } from './../../app.config';
-import { User } from './../../shared/user';
-
-
+import { retryWithBackoff } from "../http/retryWithBackoff";
+import { AppConfig } from "./../../app.config";
+import { User } from "./../../shared/user";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AuthService {
   config: any;
   currentUser: User;
   jwtHelper = new JwtHelperService();
-  private serviceUrl = "";   // autho in root /app/
-  headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-
+  private serviceUrl = ""; // autho in root /app/
+  headers = new HttpHeaders().set(
+    "Content-Type",
+    "application/json; charset=utf-8"
+  );
 
   constructor(
     config: AppConfig,
@@ -53,18 +53,21 @@ export class AuthService {
    */
   loadTokens() {
     // Check if there is a profile saved in local storage
-    this.currentUser = localStorage.getItem('profile') != null ? User.fromJson(localStorage.getItem('profile')) : null;
-    this.config.token = localStorage.getItem('id_token');
+    this.currentUser =
+      localStorage.getItem("profile") != null
+        ? User.fromJson(localStorage.getItem("profile"))
+        : null;
+    this.config.token = localStorage.getItem("id_token");
   }
 
   /**
    * return auth token or ''
    */
-  getToken():string {
+  getToken(): string {
     return this.config.token;
   }
 
-  public authenticated():boolean {
+  public authenticated(): boolean {
     // Check if there's an unexpired JWT
     // console.log("config.token: ", this.config.token);
     // console.log("isTokenExpired: ", this.jwtHelper.isTokenExpired(this.config.token));
@@ -79,7 +82,7 @@ export class AuthService {
    */
   checkRole(roles: string[], user?: User): boolean {
     if (this.config.token) {
-      let user_roles = this.jwtHelper.decodeToken(this.config.token).roles
+      let user_roles = this.jwtHelper.decodeToken(this.config.token).roles;
 
       for (const role of roles) {
         if (user_roles && user_roles.indexOf(role) >= 0) {
@@ -100,16 +103,19 @@ export class AuthService {
   login(username: string, password: string): Observable<any> {
     console.log("auth service login...");
 
-    return this._http.post<any>(
-      this.serviceUrl + "oauth",
-      JSON.stringify({
-        username: username,
-        password: password,
-        grant_type: "password"
-      }),
-      { headers: this.headers }).pipe(
+    return this._http
+      .post<any>(
+        this.serviceUrl + "oauth",
+        JSON.stringify({
+          username: username,
+          password: password,
+          grant_type: "password",
+        }),
+        { headers: this.headers }
+      )
+      .pipe(
         retryWithBackoff(1000, 3),
-        tap(res => this.setSession(res)),
+        tap((res) => this.setSession(res)),
         catchError(this.handleErrors),
         shareReplay()
       );
@@ -120,8 +126,8 @@ export class AuthService {
     console.log("success: " + authResult.success);
     if (authResult.success) {
       console.log("Authentication SUCCESS!");
-      localStorage.setItem('id_token', authResult.id_token);
-      localStorage.setItem('profile', JSON.stringify(authResult.user));
+      localStorage.setItem("id_token", authResult.id_token);
+      localStorage.setItem("profile", JSON.stringify(authResult.user));
       this.currentUser = User.fromJson(authResult.user);
       this.config.token = authResult.id_token;
       this.config.sid = "";
@@ -129,7 +135,7 @@ export class AuthService {
   }
 
   private getDecodedToken() {
-    let token = localStorage.getItem('id_token');
+    let token = localStorage.getItem("id_token");
     return this.jwtHelper.decodeToken(token);
   }
 
@@ -138,14 +144,14 @@ export class AuthService {
    */
   public refreshTokens() {
     let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    headers = headers.set("Content-Type", "application/json; charset=utf-8");
     console.log("auth service get tokens...");
 
-    return this._http.get<any>(
-      this.serviceUrl + "current_oauth",
-      { headers: headers }).pipe(
+    return this._http
+      .get<any>(this.serviceUrl + "current_oauth", { headers: headers })
+      .pipe(
         retryWithBackoff(1000, 3),
-        tap(res => this.setSession(res)),
+        tap((res) => this.setSession(res)),
         catchError(this.handleErrors),
         shareReplay()
       );
@@ -159,28 +165,26 @@ export class AuthService {
     this.currentUser = null;
 
     // Unschedule the token refresh
-    return Promise.all(
-      [
-        localStorage.removeItem('profile'),
-        localStorage.removeItem('id_token'),
-        localStorage.removeItem('refresh_token'),
-        // sid: session id for anonymous user
-        localStorage.removeItem('sid'),
-      ]);
+    return Promise.all([
+      localStorage.removeItem("profile"),
+      localStorage.removeItem("id_token"),
+      localStorage.removeItem("refresh_token"),
+      // sid: session id for anonymous user
+      localStorage.removeItem("sid"),
+    ]);
   }
 
   public getNewJwt() {
     // Get a new JWT using the refresh token saved
     // in local storage
-    let refreshToken = localStorage.getItem('refresh_token');
-    localStorage.setItem('id_token', refreshToken);
+    let refreshToken = localStorage.getItem("refresh_token");
+    localStorage.setItem("id_token", refreshToken);
   }
 
   private handleErrors(error: HttpResponse<any>) {
     console.error("Error: " + JSON.stringify(error));
     return Observable.throw(error);
   }
-
 }
 ```
 
@@ -189,64 +193,66 @@ Create a HTTP Interceptor to handle authentication token
 ```typescript
 // services/auth/token.interceptor.ts
 // ref: https://medium.com/@ryanchenkie_40935/angular-authentication-using-the-http-client-and-http-interceptors-2f9d1540eb8
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
-} from '@angular/common/http';
+  HttpInterceptor,
+} from "@angular/common/http";
 
-import { AuthService } from './auth.service';
-import { Observable } from 'rxjs';
-
+import { AuthService } from "./auth.service";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
+  constructor(public auth: AuthService) {}
 
-  constructor(public auth: AuthService) { }
-
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
+  intercept(
+    request: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
     if (this.auth.authenticated()) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${this.auth.getToken()}`
-        }
-
+          Authorization: `Bearer ${this.auth.getToken()}`,
+        },
       });
     }
 
     return next.handle(request);
   }
 }
-
 ```
 
-Create autn guard
+Create auth guard
 
     $ ng generate guard services/auth/auth
-    
-```typescript
-import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
-import { AuthService } from './auth.service';
 
-import { Observable } from 'rxjs';
+```typescript
+import { Injectable } from "@angular/core";
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  UrlTree,
+  Router,
+} from "@angular/router";
+import { AuthService } from "./auth.service";
+
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 /** Authentication Guard, only authenticated users with JWT Token on localstorage */
 @Injectable()
 export class AuthGuard implements CanActivate {
-
-  constructor(private authService: AuthService, public router: Router) {
-  }
+  constructor(private authService: AuthService, public router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (!this.authService.authenticated()) {
-      this.router.navigate(['login']);
+      this.router.navigate(["login"]);
       return false;
     }
     return true;
@@ -305,7 +311,7 @@ Using Turbogears
 Install JWT library dependency
 
     $ pip install PyJWT
-    
+
 On auth controller
 
 ```python
