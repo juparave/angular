@@ -31,3 +31,33 @@ ref: [angular-cli wiki](https://github.com/angular/angular-cli/wiki)
 ## Your global Angular CLI version (7.2.1) is greater than your local version (6.2.9). The local Angular CLI version is used
 
     $ npm install --save-dev @angular/cli@latest
+
+## Creating example
+
+Create a new ControlPanel module
+
+    $ ng g m modules/ControlPanel
+    CREATE src/app/modules/control-panel/control-panel.module.ts (198 bytes)
+
+Create ControlPanel component
+
+    $ ng g c modules/control-panel
+    CREATE src/app/modules/control-panel/control-panel.component.scss (0 bytes)
+    CREATE src/app/modules/control-panel/control-panel.component.html (28 bytes)
+    CREATE src/app/modules/control-panel/control-panel.component.spec.ts (642 bytes)
+    CREATE src/app/modules/control-panel/control-panel.component.ts (303 bytes)
+    UPDATE src/app/modules/control-panel/control-panel.module.ts (297 bytes)
+
+Create a new Leads module
+
+    $ ng g m modules/Leads
+    CREATE src/app/modules/leads/leads.module.ts (191 bytes)
+
+Create Leads component
+
+    $ ng g c modules/leads
+    CREATE src/app/modules/leads/leads.component.scss (0 bytes)
+    CREATE src/app/modules/leads/leads.component.html (20 bytes)
+    CREATE src/app/modules/leads/leads.component.spec.ts (592 bytes)
+    CREATE src/app/modules/leads/leads.component.ts (272 bytes)
+    UPDATE src/app/modules/leads/leads.module.ts (265 bytes)
