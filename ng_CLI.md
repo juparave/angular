@@ -61,3 +61,54 @@ Create Leads component
     CREATE src/app/modules/leads/leads.component.spec.ts (592 bytes)
     CREATE src/app/modules/leads/leads.component.ts (272 bytes)
     UPDATE src/app/modules/leads/leads.module.ts (265 bytes)
+
+Create a ReassignLeadModalComponent
+
+    $ ng g c modules/leads/ReassignLeadModal
+    CREATE src/app/modules/leads/reassign-lead-modal/reassign-lead-modal.component.scss (0 bytes)
+    CREATE src/app/modules/leads/reassign-lead-modal/reassign-lead-modal.component.html (34 bytes)
+    CREATE src/app/modules/leads/reassign-lead-modal/reassign-lead-modal.component.spec.ts (678 bytes)
+    CREATE src/app/modules/leads/reassign-lead-modal/reassign-lead-modal.component.ts (326 bytes)
+    UPDATE src/app/modules/leads/leads.module.ts (657 bytes)
+
+Create Agents Service
+
+    $ ng g s services/agents
+    CREATE src/app/services/agents.service.spec.ts (357 bytes)
+    CREATE src/app/services/agents.service.ts (135 bytes)
+
+Create a StatusUpdateModalComponent
+
+    $ ng g c modules/leads/UpdateStatusModal
+    CREATE src/app/modules/leads/update-status-modal/update-status-modal.component.scss (0 bytes)
+    CREATE src/app/modules/leads/update-status-modal/update-status-modal.component.html (34 bytes)
+    CREATE src/app/modules/leads/update-status-modal/update-status-modal.component.spec.ts (678 bytes)
+    CREATE src/app/modules/leads/update-status-modal/update-status-modal.component.ts (326 bytes)
+    UPDATE src/app/modules/leads/leads.module.ts (787 bytes)
+
+Create a LeadsFilterModalComponent
+
+    $ ng g c modules/leads/LeadsFilterModal
+    CREATE src/app/modules/leads/leads-filter-modal/leads-filter-modal.component.scss (0 bytes)
+    CREATE src/app/modules/leads/leads-filter-modal/leads-filter-modal.component.html (33 bytes)
+    CREATE src/app/modules/leads/leads-filter-modal/leads-filter-modal.component.spec.ts (671 bytes)
+    CREATE src/app/modules/leads/leads-filter-modal/leads-filter-modal.component.ts (322 bytes)
+    UPDATE src/app/modules/leads/leads.module.ts (913 bytes)
+
+Create a DatesFilterModalComponent
+
+    $ ng g c modules/leads/DatesFilterModal
+    CREATE src/app/modules/leads/dates-filter-modal/dates-filter-modal.component.scss (0 bytes)
+    CREATE src/app/modules/leads/dates-filter-modal/dates-filter-modal.component.html (33 bytes)
+    CREATE src/app/modules/leads/dates-filter-modal/dates-filter-modal.component.spec.ts (671 bytes)
+    CREATE src/app/modules/leads/dates-filter-modal/dates-filter-modal.component.ts (322 bytes)
+    UPDATE src/app/modules/leads/leads.module.ts (1039 bytes)
+
+Create a LeatTableComponent
+
+    $ ng g c modules/leads/LeadsTable
+    CREATE src/app/modules/leads/leads-table/leads-table.component.scss (0 bytes)
+    CREATE src/app/modules/leads/leads-table/leads-table.component.html (26 bytes)
+    CREATE src/app/modules/leads/leads-table/leads-table.component.spec.ts (628 bytes)
+    CREATE src/app/modules/leads/leads-table/leads-table.component.ts (295 bytes)
+    UPDATE src/app/modules/leads/leads.module.ts (1139 bytes)
