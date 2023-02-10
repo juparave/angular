@@ -104,7 +104,7 @@ Create a DatesFilterModalComponent
     CREATE src/app/modules/leads/dates-filter-modal/dates-filter-modal.component.ts (322 bytes)
     UPDATE src/app/modules/leads/leads.module.ts (1039 bytes)
 
-Create a LeatTableComponent
+Create a LeadTableComponent
 
     $ ng g c modules/leads/LeadsTable
     CREATE src/app/modules/leads/leads-table/leads-table.component.scss (0 bytes)
@@ -112,3 +112,21 @@ Create a LeatTableComponent
     CREATE src/app/modules/leads/leads-table/leads-table.component.spec.ts (628 bytes)
     CREATE src/app/modules/leads/leads-table/leads-table.component.ts (295 bytes)
     UPDATE src/app/modules/leads/leads.module.ts (1139 bytes)
+
+Create a LeadDetailFormComponent
+
+    $ ng g c modules/leads/LeadDetailForm
+    CREATE src/app/modules/leads/lead-detail-form/lead-detail-form.component.scss (0 bytes)
+    CREATE src/app/modules/leads/lead-detail-form/lead-detail-form.component.html (31 bytes)
+    CREATE src/app/modules/leads/lead-detail-form/lead-detail-form.component.spec.ts (657 bytes)
+    CREATE src/app/modules/leads/lead-detail-form/lead-detail-form.component.ts (314 bytes)
+    UPDATE src/app/modules/leads/leads.module.ts (1257 bytes)
+
+Create a LeadActivityTableComponent
+
+    $ ng g c modules/leads/LeadActivityTable
+    CREATE src/app/modules/leads/lead-activity-table/lead-activity-table.component.scss (0 bytes)
+    CREATE src/app/modules/leads/lead-activity-table/lead-activity-table.component.html (34 bytes)
+    CREATE src/app/modules/leads/lead-activity-table/lead-activity-table.component.spec.ts (678 bytes)
+    CREATE src/app/modules/leads/lead-activity-table/lead-activity-table.component.ts (326 bytes)
+    UPDATE src/app/modules/leads/leads.module.ts (1387 bytes)
