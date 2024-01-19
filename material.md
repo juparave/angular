@@ -1,5 +1,29 @@
 # Angular and Material
 
+## New project with material
+
+Angular CLI
+
+    npm install -g @angular/cli@17
+
+Create new project named `angular` without the default `standalone` and `cd` into it
+
+    ng new angular --standalone false
+    cd angular/
+
+eslint
+
+    npx eslint --init
+
+Angular Material
+
+    ng add @angular/material
+
+NGRX
+
+    ng add @ngrx/store@latest
+
+
 [Creating Beautiful Apps with Angular Material](https://auth0.com/blog/creating-beautiful-apps-with-angular-material/)
 
 Material Icons
