@@ -1,3 +1,9 @@
+---
+title: "Authentication"
+layout: default
+nav_order: 3
+---
+
 # Angular Authentication with JWT
 
 ## Setup client-side

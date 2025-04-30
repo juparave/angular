@@ -1,3 +1,9 @@
+---
+title: "Angular Topics"
+layout: default
+nav_order: 1
+---
+
 {% for file in site.static_files %}
 {% if file.extname == ".md" %}
 [{{ file.basename }}]({{site.baseurl}}/angular/{{file.basename}}.html)

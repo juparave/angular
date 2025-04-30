@@ -1,0 +1,9 @@
+<div class="breadcrumbs">
+  <a href="https://juparave.github.io/">Home</a>
+  {% if site.baseurl != "" %}
+  / <a href="{{ site.baseurl }}/">{{ site.title | split: " " | first }}</a>
+  {% endif %}
+  {% if page.url != "/index.html" and page.url != "/" %}
+  / <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
+  {% endif %}
+</div>

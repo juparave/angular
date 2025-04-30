@@ -1,0 +1,37 @@
+---
+# Core settings
+title: "Angular Development Reference"
+description: "Reference documentation for Angular development"
+baseurl: "/angular"
+url: "https://juparave.github.io"
+github_username: juparave
+
+# Theme and display settings
+theme: jekyll-theme-minimal
+markdown: kramdown
+highlighter: rouge
+
+# Navigation settings
+header_pages:
+  - index.md
+
+# Repository links mapping
+repository_links:
+  angular: "/angular/"
+  cloud: "/cloud/"
+  dart: "/dart/"
+  flask: "/flask/"
+  flutter: "/flutter/"
+  git: "/git/"
+  golang: "/golang/"
+  linux: "/linux/"
+  turbogears: "/turbogears/"
+
+# SEO and social plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-github-metadata
+
+github: true
+---

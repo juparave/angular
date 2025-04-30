@@ -1,0 +1,8 @@
+<div class="repo-links">
+  <h3>Technology Categories</h3>
+  <ul>
+{% for name, url in site.repository_links %}
+  <li><a href="{{ url | relative_url }}">{{ name | capitalize }}</a></li>
+{% endfor %}
+  </ul>
+</div>

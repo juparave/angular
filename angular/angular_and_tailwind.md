@@ -1,3 +1,9 @@
+---
+title: "Angular and Tailwind"
+layout: default
+nav_order: 2
+---
+
 # Angular and Tailwind
 
 ## Create Angular project
