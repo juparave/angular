@@ -25,7 +25,7 @@ import { Router } from "@angular/router";
 import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
 import { JwtHelperService } from "@auth0/angular-jwt";
 
-import { Observable } from "rxjs";
+import { Observable, throwError } from "rxjs"; // Add throwError here
 import { catchError, shareReplay, tap } from "rxjs/operators";
 
 import { retryWithBackoff } from "../http/retryWithBackoff";
@@ -189,7 +189,7 @@ export class AuthService {
 
   private handleErrors(error: HttpResponse<any>) {
     console.error("Error: " + JSON.stringify(error));
-    return Observable.throw(error);
+    return throwError(() => error);
   }
 }
 ```

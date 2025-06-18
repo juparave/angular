@@ -1,6 +1,6 @@
 # Angular CLI
 
-ref: [angular-cli wiki](https://github.com/angular/angular-cli/wiki)
+ref: [Angular CLI Documentation](https://angular.dev/cli)
 
 ## Install
 
@@ -9,7 +9,6 @@ ref: [angular-cli wiki](https://github.com/angular/angular-cli/wiki)
 ## Generating new module
 
     $ ng generate module sales
-    CREATE src/app/sales/sales.module.spec.ts (251 bytes)
     CREATE src/app/sales/sales.module.ts (187 bytes)
 
 ## Generating new component
@@ -27,10 +26,6 @@ ref: [angular-cli wiki](https://github.com/angular/angular-cli/wiki)
     $ ng generate module sales
     # adding pos component to sales module
     $ ng generate component sales/pos --module sales
-
-## Your global Angular CLI version (7.2.1) is greater than your local version (6.2.9). The local Angular CLI version is used
-
-    $ npm install --save-dev @angular/cli@latest
 
 ## Creating example
 
