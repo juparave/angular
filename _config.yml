@@ -7,7 +7,7 @@ url: "https://juparave.github.io"
 github_username: juparave
 
 # Theme and display settings
-theme: jekyll-rtd-theme
+theme: jekyll-theme-dinky
 markdown: kramdown
 highlighter: rouge
 
@@ -30,17 +30,6 @@ repository_links:
 # SEO and social plugins
 plugins:
   - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-github-metadata
-  - jekyll-coffeescript
-  - jekyll-commonmark-ghpages
-  - jekyll-gist
-  - jekyll-paginate
-  - jekyll-relative-links
-  - jekyll-optional-front-matter
-  - jekyll-readme-index
-  - jekyll-default-layout
-  - jekyll-titles-from-headings
 
 github: true
 ---
