@@ -1,3 +1,8 @@
+---
+title: "File Upload"
+layout: default
+nav_order: 10
+---
 # Angular File Uploader
 
 

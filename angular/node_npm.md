@@ -1,3 +1,8 @@
+---
+title: "Node.js and npm"
+layout: default
+nav_order: 17
+---
 # Node & npm
 
 ## NPM Global (user)
@@ -96,4 +101,3 @@ $ npm update
 + @angular/compiler@10.2.5
 + @angular/core@10.2.5
 ```
-

@@ -1,3 +1,8 @@
+---
+title: "Angular Material"
+layout: default
+nav_order: 6
+---
 # Angular and Material
 
 ## New project with material

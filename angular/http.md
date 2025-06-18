@@ -1,3 +1,8 @@
+---
+title: "Angular HTTP Client"
+layout: default
+nav_order: 13
+---
 # http
 
 ref: [Learn rxjs](https://www.learnrxjs.io/learn-rxjs/operators/error_handling/retrywhen)

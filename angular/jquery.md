@@ -1,3 +1,8 @@
+---
+title: "Using jQuery with Angular"
+layout: default
+nav_order: 14
+---
 More elegant way without using
 
     declare var $: any;

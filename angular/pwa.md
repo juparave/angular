@@ -1,3 +1,8 @@
+---
+title: "Progressive Web Apps (PWA)"
+layout: default
+nav_order: 7
+---
 # Progressive Web App
 
 * [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist)

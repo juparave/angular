@@ -1,3 +1,8 @@
+---
+title: "Angular Forms"
+layout: default
+nav_order: 11
+---
 ## Angular Forms
 
 ## Theming
