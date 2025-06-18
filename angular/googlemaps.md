@@ -1,3 +1,8 @@
+---
+title: "Google Maps Integration"
+layout: default
+nav_order: 12
+---
 # GoogleMaps
 
 ## Install dependencies

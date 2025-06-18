@@ -1,3 +1,8 @@
+---
+title: "Angular Core Concepts"
+layout: default
+nav_order: 15
+---
 # angular
 
 * [angular-cli](ng_CLI.md)

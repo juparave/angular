@@ -1,3 +1,8 @@
+---
+title: "Dynamically Set Page Title"
+layout: default
+nav_order: 8
+---
 # dynamically-set-page-title-in-angular
 
 ref: https://dev.to/nightwolfdev/dynamically-set-page-title-in-angular-app-35ca

@@ -1,3 +1,8 @@
+---
+title: "ng generate (Angular CLI)"
+layout: default
+nav_order: 16
+---
 # ng generate
 
 ## Modules
@@ -30,6 +35,3 @@ Create User class and service
 
   $ ng generate class shared/user/user
   $ ng generate service shared/user/user
-
-
-

@@ -1,3 +1,8 @@
+---
+title: "Angular Developer Tools"
+layout: default
+nav_order: 19
+---
 ## DatePicker
 
 Using NgbModule you need to convert initial value
