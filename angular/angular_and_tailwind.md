@@ -21,7 +21,7 @@ ref: https://tailwindcss.com/docs/guides/angular
     $ npm install -D tailwindcss postcss autoprefixer
     $ npx tailwindcss init
 
-That creates a base Tailwind CSS file: `tailwind.config.ts`
+That creates a base Tailwind CSS file: `tailwind.config.js`
 
 ### Tailwind Forms plugin
 
@@ -46,7 +46,7 @@ module.exports = {
 
 ### Tailwind Elements
 
-ref: https://tailwind-elements.com/
+ref: https://tw-elements.com/
 
     $ npm install -D tw-elements
 
@@ -61,7 +61,7 @@ module.exports = {
   content: ['./src/**/*.{html,js}', './node_modules/tw-elements/dist/js/**/*.js'],
   plugins: [
     require('@tailwindcss/forms'),
-    require('tw-elements/dist/plugin'),
+    require('tw-elements/dist/plugin.cjs'), // Corrected line
   ]
 }
 ```
